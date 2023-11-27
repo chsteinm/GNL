@@ -1,0 +1,21 @@
+testeu
+tast
+tust
+tost
+t
+e
+s
+t
+
+retourner une ligne en read buffersize par buffersize. 
+verifier a chaque lecture si \n il y a
+join dans line jusqu'a ce qu'un \n
+sauvegarder ce qui a ete lu en plus du \n pour
+	le join au reste jusqu'au prochain \n ou \o
+
+
+DONC 
+dans gnl
+1 regarder si il y a un \n dans ce qu'il reste du dernier appel
+2 si non, read, et regarder si il y a un \n PQ CA BUG
+3 renvoyer la line et ce jusqu'a ce que read renvoie 0
