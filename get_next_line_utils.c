@@ -6,7 +6,7 @@
 /*   By: chrstein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:11:37 by chrstein          #+#    #+#             */
-/*   Updated: 2023/11/20 20:11:40 by chrstein         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:14:38 by chrstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ char	*ft_strdup(const char *src)
 	ft_strlcpy(copy, src, len + 1);
 	return (copy);
 }
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
