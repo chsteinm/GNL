@@ -41,7 +41,7 @@ char	*read_and_ret(t_struct *strct, int fd)
 	if (!strct->bytes_read[fd] || !strct->buf[fd][0])
 		return (0);
 	if (strct->bytes_read[fd] == -1)
-		return (free(strct->tmp[fd]), strct->tmp[fd] = 0, NULL);
+		return (free(strct->tmp[fd]), strct->tmp[fd] = 0);
 	strct->buf[fd][strct->bytes_read[fd]] = 0;
 	strct->tmp_tmp = strct->tmp[fd];
 	if (strct->tmp[fd])
