@@ -26,6 +26,8 @@ char	*ret_line(t_struct *strct)
 	int	index;
 
 	index = 0;
+	if (!strct->tmp)
+		return (NULL);
 	while (strct->tmp[index] != '\n')
 		index++;
 	strct->tmp[index + 1] = 0;
@@ -36,8 +38,10 @@ char	*read_and_ret(t_struct *strct, int fd)
 {
 	strct->buf_ptr = strct->buf;
 	strct->bytes_read = read(fd, strct->buf, BUFFER_SIZE);
-	if (strct->bytes_read < 1 || !strct->buf[0])
+	if (!strct->bytes_read || !strct->buf[0])
 		return (0);
+	if (strct->bytes_read == -1)
+		return (free(strct->tmp), strct->tmp = 0, NULL);
 	strct->buf[strct->bytes_read] = 0;
 	strct->tmp_tmp = strct->tmp;
 	if (strct->tmp)
@@ -56,7 +60,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (0);
-	if (strct.bytes_read == 0)
+	if (strct.bytes_read < 1)
 	{
 		strct.tmp = NULL;
 		strct.buf_ptr = NULL;
@@ -71,9 +75,6 @@ char	*get_next_line(int fd)
 	if (strct.bytes_read == -1)
 		*strct.buf_ptr = 0;
 	if (strct.tmp && !strct.tmp[0])
-	{
-		free(strct.tmp);
-		return (NULL);
-	}
+		return (free(strct.tmp), NULL);
 	return (strct.tmp);
 }

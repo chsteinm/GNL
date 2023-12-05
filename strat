@@ -1,12 +1,3 @@
-testeu
-tast
-tust
-tost
-t
-e
-s
-t
-
 retourner une ligne en read buffersize par buffersize. 
 verifier a chaque lecture si \n il y a
 join dans line jusqu'a ce qu'un \n
